@@ -18,7 +18,7 @@ docker compose build
 docker compose up
 ```
 
-### Tests E2E
+### Tests - E2E
 
 **Running Tests End-to-End (E2E):**
 
