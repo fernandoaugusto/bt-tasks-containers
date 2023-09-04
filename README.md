@@ -7,25 +7,25 @@ The file .env is present in the application in order to make easier the project 
 
 ### Build
 
-1. **Build using Docker Compose:**
+**Build using Docker Compose:**
 
 Execute from terminal:
 
 ```bash
-docker-compose build
+docker compose build
 ```
 ```bash
-docker-compose up
+docker compose up
 ```
 
 ### Tests E2E
 
-2. **Running Tests End-to-End (E2E):**
+**Running Tests End-to-End (E2E):**
 
 First of all, check if bt-tasks service is not running in Docker.
 You must to keep running the Postgres service.
 
-Execute from terminal:
+If you are in project root folder, execute from terminal these commands:
 
 ```bash
 cd bt-tasks
