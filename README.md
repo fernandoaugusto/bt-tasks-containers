@@ -3,7 +3,7 @@
 This application is running over Docker Compose.
 The file .env is present in the application in order to make easier the project presentation.
 
-## Instruções para Execução
+## Instructions
 
 ### Build
 
