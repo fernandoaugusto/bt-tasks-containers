@@ -1,6 +1,6 @@
 const request = require('supertest');
 const { faker } = require('@faker-js/faker');
-const { initServer, stopServer } = require('../src/main');
+const { initTestServer, stopTestServer } = require('./init.server');
 
 const PORT = 10001;
 const SERVER_WITH_PREFIX = `http://localhost:${PORT}/api/v1`;
@@ -8,11 +8,11 @@ const SERVER_WITH_PREFIX = `http://localhost:${PORT}/api/v1`;
 describe('Accounts Tests E2E', () => {
 
     beforeAll(async () => {
-        //await initServer(PORT);
+        await initTestServer(PORT);
     });
 
     afterAll(() => {
-        stopServer();
+        stopTestServer();
     });
 
     describe('POST /accounts/signup', () => {

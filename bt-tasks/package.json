@@ -30,8 +30,8 @@
   "jest": {
     "testEnvironment": "node",
     "testMatch": [
-      "**/tests/**/*.[jt]s?(x)",
-      "**/?(*.)+(spec|test).[tj]s?(x)"
+      "**/tests/**/*spec.[jt]s?(x)",
+      "**/?(*.)+spec.[jt]s?(x)"
     ]
   }
 }
