@@ -1,0 +1,39 @@
+version: '3.2'
+
+services:
+
+  postgres:
+    image: postgres:14.5
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=btuser
+      - POSTGRES_PASSWORD=btpass
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - "11000:5432"
+    volumes:
+      # Initial DB Setup
+      - ./postgres/db_setup.sql:/docker-entrypoint-initdb.d/db_setup.sql
+    networks:
+      - btnet
+
+  bt-tasks:
+    build:
+      context: ./bt-tasks
+      dockerfile: Dockerfile_BTTasks
+    ports:
+      - "10000:3000"
+    depends_on:
+      - postgres
+    environment:
+      - PORT=3000
+      - DATABASE_URL=postgresql://btuser:btpass@postgres:5432/postgres?schema=public
+    networks:
+      - btnet
+
+networks:
+  btnet:
+    driver: bridge
